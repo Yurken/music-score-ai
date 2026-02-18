@@ -1,0 +1,13 @@
+services:
+  music-score-ai:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: music-score-ai
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./outputs:/app/outputs
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
